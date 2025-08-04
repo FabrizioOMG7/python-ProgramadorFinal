@@ -17,3 +17,4 @@ print('\nMódulo o resto de una division:\n')
 n2=2
 resultado=n1%n2
 print('El módulo o resto de una división es: ', resultado)
+
