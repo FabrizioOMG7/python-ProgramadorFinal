@@ -1,0 +1,31 @@
+def mostrar_datos(nombre, edad):
+    print(f"Tu nombre es {nombre} y tienes {edad} años")
+
+mostrar_datos("Fabrizio", 21)
+
+'''Ejercicio de multiplicación con funciones'''
+
+a= int(input("Ingresa un número: "))
+b= int(input("Ingresa otro número: "))
+
+def multiplicar(a,b):
+    return a * b
+
+resultado = multiplicar(a , b) 
+print("La multiplicación es: ", resultado)
+
+'''Ejemplo de reutilización de una función en otra función'''
+
+def sumar(a,b):
+    return a + b
+
+total = sumar(3, 4)
+
+def doble(n):
+    return n * 2
+
+resultado = doble(total)
+
+print(f"El resultado es: {resultado}")
+
+
