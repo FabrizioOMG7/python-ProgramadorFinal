@@ -1,0 +1,14 @@
+{
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.inlineSuggest.enabled": false, // Esto desactiva las sugerencias tipo Copilot
+    "editor.parameterHints.enabled": true,
+    "editor.snippetSuggestions": "none",
+    "editor.tokenColorCustomizations": {
+        "comments": "#6A9955"
+    }
+}

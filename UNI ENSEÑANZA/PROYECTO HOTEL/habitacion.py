@@ -17,10 +17,22 @@ class Habitacion:
         self.numero = numero
         self.capacidad = capacidad
         self.precio_por_noche = precio_por_noche
-        self.disponible = disponible
-
+        self.__disponible = disponible
+        
     # metodos:
     def describir(self):
         print(
-            f"Habitación {self.numero} - Capacidad: {self.capacidad} personas - Precio: {self.precio_por_noche} -  Disponible: {self.disponible}"
+            f"Habitación {self.numero} - Capacidad: {self.capacidad} personas - Precio: {self.precio_por_noche} -  Disponible: {self.__disponible}"
         )
+
+# A esto se le llama encapsulación
+    def esta_disponible(self):
+        if self.__disponible:
+            return True
+        else:
+            return False 
+
+#Cuándo alguien necesite ocupar una habitación solo se llama a este método   
+
+    def ocupar(self):
+        self.__disponible = False

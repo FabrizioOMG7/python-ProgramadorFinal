@@ -16,11 +16,17 @@ class Cliente:
 
         self.nombre = nombre
         self.email = email
-        self.activo = activo
+        self.__activo = activo
 
     # metodos:
     def desactivar(self):
-        self.activo = False
+        self.__activo = False
 
     def activar(self):
-        self.activo = True
+        self.__activo = True
+
+    def esta_activo(self):
+        if self.__activo:
+            return True
+        else: 
+            return False
