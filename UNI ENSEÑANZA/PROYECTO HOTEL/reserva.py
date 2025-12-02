@@ -36,4 +36,4 @@ class Reserva:
 
         dias = (self.fecha_fin - self.fecha_inicio).days
 
-        return (dias * self.habitacion.precio_por_noche) + self.habitacion.pago_extra
+        return (dias * self.habitacion.precio_por_noche) + self.habitacion.pago_extra()

@@ -15,9 +15,18 @@ def main():
 
     reserva_vip = Reserva(cliente, suite,date(2025,1,5), date(2025,1,10) )
 
-    print("Total", reserva.calcular_total())
-    print("Total VIP:", reserva_vip.calcular_total())
+    total_precio = reserva.calcular_total()
+    # BLOQUE 1: La Reserva Normal
+    print("\n--- RESERVA ESTÁNDAR ---")
+    cliente.describir()
+    habitacion.describir()
+    print(f"Total a pagar: {reserva.calcular_total()}")
 
+    # BLOQUE 2: La Reserva VIP
+    print("\n--- RESERVA VIP ---")
+    cliente.describir()
+    suite.describir()
+    print(f"Total a pagar: {reserva_vip.calcular_total()}")
 
 if __name__ == "__main__":
-    main()  
+    main()

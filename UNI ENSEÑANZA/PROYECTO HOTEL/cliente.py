@@ -18,6 +18,9 @@ class Cliente:
         self.email = email
         self.__activo = activo
 
+    def describir(self):
+        print(f"Cliente: {self.nombre} - Email: {self.email} - Activo: {self.__activo}")
+
     # metodos:
     def desactivar(self):
         self.__activo = False
@@ -30,3 +33,4 @@ class Cliente:
             return True
         else: 
             return False
+
