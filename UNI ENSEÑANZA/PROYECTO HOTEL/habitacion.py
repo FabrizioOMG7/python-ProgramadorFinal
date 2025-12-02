@@ -36,3 +36,6 @@ class Habitacion:
 
     def ocupar(self):
         self.__disponible = False
+
+    def pago_extra(self):
+        return 0

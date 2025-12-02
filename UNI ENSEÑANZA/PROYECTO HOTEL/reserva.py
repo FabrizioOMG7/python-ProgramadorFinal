@@ -2,6 +2,7 @@ from datetime import date
 from habitacion import Habitacion
 from cliente import Cliente
 
+
 # Definimos la clase reserva
 class Reserva:
     # Instanciamos para agregar las clases (composición)
@@ -35,4 +36,4 @@ class Reserva:
 
         dias = (self.fecha_fin - self.fecha_inicio).days
 
-        return dias * self.habitacion.precio_por_noche
+        return (dias * self.habitacion.precio_por_noche) + self.habitacion.pago_extra
