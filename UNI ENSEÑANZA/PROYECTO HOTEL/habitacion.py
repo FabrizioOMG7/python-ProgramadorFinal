@@ -18,6 +18,20 @@ class Habitacion:
         self.capacidad = capacidad
         self.precio_por_noche = precio_por_noche
         self._disponible = disponible
+
+# 1. EL GETTER (Para leer: habitacion.disponible)
+    @property
+    def disponible(self):
+        return self._disponible
+    
+# 2. EL SETTER (Para escribir: habitacion.disponible = False)
+    @disponible.setter
+    def disponible(self, valor):
+        if not isinstance(valor, bool):
+            raise ValueError("El estado disponible debe ser booleano")
+        
+        self._disponible = valor
+
         
     # metodos:
     def describir(self):
@@ -25,6 +39,21 @@ class Habitacion:
             f"Habitación {self.numero} - Capacidad: {self.capacidad} personas - Precio: {self.precio_por_noche} -  Disponible: {self.disponible}"
         )
 
+    def pago_extra(self):
+        return 0
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 # A esto se le llama encapsulación
     def esta_disponible(self):
         if self.__disponible:
@@ -36,6 +65,4 @@ class Habitacion:
 
     def ocupar(self):
         self.__disponible = False
-
-    def pago_extra(self):
-        return 0
+'''

@@ -13,7 +13,7 @@ class Reserva:
             raise TypeError("Se espera un objeto de la clase cliente")
         if not isinstance(habitacion, Habitacion):
             raise TypeError("Se espera un objeto de la clase habitacion")
-        if not habitacion.esta_disponible():
+        if not habitacion.disponible:
             raise ValueError("No hay habitaciones disponibles")
         if not cliente.esta_activo():
             raise ValueError("El cliente no está activo")
@@ -28,7 +28,7 @@ class Reserva:
         self.habitacion = habitacion
         self.fecha_inicio = fecha_inicio
         self.fecha_fin = fecha_fin
-        self.habitacion = False
+        self.habitacion.disponible = False
 
         # Método
 
