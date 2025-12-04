@@ -28,7 +28,7 @@ class Reserva:
         self.habitacion = habitacion
         self.fecha_inicio = fecha_inicio
         self.fecha_fin = fecha_fin
-        self.habitacion.ocupar()
+        self.habitacion = False
 
         # Método
 

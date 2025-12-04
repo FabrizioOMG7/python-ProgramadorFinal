@@ -1,6 +1,6 @@
 # Definimos la clase habitación
 class Habitacion:
-    def __init__(self, numero, capacidad, precio_por_noche, disponible):
+    def __init__(self, numero, capacidad, precio_por_noche, disponible = True):
 
         # Dentro de la instancia colocamos las restricciones
         if not isinstance(capacidad, int):
@@ -17,12 +17,12 @@ class Habitacion:
         self.numero = numero
         self.capacidad = capacidad
         self.precio_por_noche = precio_por_noche
-        self.__disponible = disponible
+        self._disponible = disponible
         
     # metodos:
     def describir(self):
         print(
-            f"Habitación {self.numero} - Capacidad: {self.capacidad} personas - Precio: {self.precio_por_noche} -  Disponible: {self.__disponible}"
+            f"Habitación {self.numero} - Capacidad: {self.capacidad} personas - Precio: {self.precio_por_noche} -  Disponible: {self.disponible}"
         )
 
 # A esto se le llama encapsulación
