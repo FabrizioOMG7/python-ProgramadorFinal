@@ -11,26 +11,31 @@ class Cliente:
             raise ValueError("El email deben ser string")
         if "@" not in email:
             raise ValueError("El email debe tener un @ ")
-        if not isinstance(activo, bool):
-            raise ValueError("El estado activo debe ser booleano (True o False)")
 
         self.nombre = nombre
         self.email = email
-        self.__activo = activo
+        self.activo = activo
 
     def describir(self):
-        print(f"Cliente: {self.nombre} - Email: {self.email} - Activo: {self.__activo}")
+        return f"Cliente: {self.nombre} - Email: {self.email} - Activo: {self._activo}"
 
     # metodos:
     def desactivar(self):
-        self.__activo = False
+        self._activo = False
 
     def activar(self):
-        self.__activo = True
+        self._activo = True
 
-    def esta_activo(self):
-        if self.__activo:
-            return True
-        else: 
-            return False
+
+    @property 
+    def activo(self):
+        return self._activo
+    
+    @activo.setter
+    def activo(self, valor):
+        if not isinstance(valor, bool):
+            raise ValueError("El estado del cliente debe ser booleano")
+        self._activo = valor
+
+
 

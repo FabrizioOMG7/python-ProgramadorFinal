@@ -15,7 +15,6 @@ def main():
 
     reserva_vip = Reserva(cliente, suite,date(2025,1,5), date(2025,1,10) )
 
-    total_precio = reserva.calcular_total()
     # BLOQUE 1: La Reserva Normal
     print("\n--- RESERVA ESTÁNDAR ---")
     cliente.describir()
