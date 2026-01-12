@@ -1,19 +1,23 @@
+#Importamos DatosInvalidosError del archivo excepciones
+from excepciones import DatosError, DatosInvalidosError, TipoDatoError
+
 # Definimos la clase habitación
 class Habitacion:
-    def __init__(self, numero, capacidad, precio_por_noche, disponible = True):
+    def __init__(self, numero:str, capacidad:int, precio_por_noche:float, disponible:bool = True):
 
         # Dentro de la instancia colocamos las restricciones
         if not isinstance(capacidad, int):
-            raise ValueError("La capacidad debe ser un valor entero")
+            raise TipoDatoError("La capacidad debe ser un valor entero")
         if capacidad <= 0:
-            raise ValueError("La capacidad debe ser un número positivo")
-        if not isinstance(precio_por_noche, (int, float)):
-            raise ValueError("El precio debe ser un valor numérico")
+            raise DatosInvalidosError("La capacidad debe ser un número positivo")
+        if not isinstance(precio_por_noche, (int, float)):          
+            raise TipoDatoError("El precio debe ser un valor numérico")
         if precio_por_noche <= 0:
-            raise ValueError("El precio por noche debe ser un valor positivo")
+            raise DatosInvalidosError("El precio por noche debe ser un valor positivo")
         if not isinstance(disponible, bool):
-            raise ValueError("El estado disponible debe ser booleano (True o False)")
-
+            raise TipoDatoError("El estado disponible debe ser booleano (True o False)")
+        if not isinstance(numero, str):
+            raise TipoDatoError("El número de la habitación no debe estar vacío")
         self.numero = numero
         self.capacidad = capacidad
         self.precio_por_noche = precio_por_noche
