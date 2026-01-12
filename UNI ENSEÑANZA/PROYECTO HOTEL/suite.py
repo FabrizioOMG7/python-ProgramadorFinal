@@ -26,3 +26,4 @@ class Suite(Habitacion):
 
     def pago_extra(self):
         return super().pago_extra() + 50
+    

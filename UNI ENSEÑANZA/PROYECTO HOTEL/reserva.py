@@ -2,6 +2,8 @@ from datetime import date
 from habitacion import Habitacion
 from cliente import Cliente
 
+#Importamos los errores de la clase de errores
+from excepciones import HabitacionOcupadaError, ClienteInactivoError, FechasInvalidasError
 
 # Definimos la clase reserva
 class Reserva:
@@ -14,15 +16,15 @@ class Reserva:
         if not isinstance(habitacion, Habitacion):
             raise TypeError("Se espera un objeto de la clase habitacion")
         if not habitacion.disponible:
-            raise ValueError("No hay habitaciones disponibles")
+            raise HabitacionOcupadaError("No hay habitaciones disponibles")
         if not cliente.activo:
-            raise ValueError("El cliente no está activo")
+            raise ClienteInactivoError("El cliente no está activo")
         if not isinstance(fecha_inicio, date):
             raise ValueError("La fecha de inicio debe ser de tipo de dato Date ")
         if not isinstance(fecha_fin, date):
             raise ValueError("La fecha fin debe ser de tipo de dato Date")
         if fecha_inicio >= fecha_fin:
-            raise ValueError("La fecha fin debe ser mayor a la fecha de inicio")
+            raise FechasInvalidasError("La fecha fin debe ser mayor a la fecha de inicio")
 
         self.cliente = cliente
         self.habitacion = habitacion

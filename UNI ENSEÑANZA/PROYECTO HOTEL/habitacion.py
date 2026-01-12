@@ -42,10 +42,27 @@ class Habitacion:
     def pago_extra(self):
         return 0
 
+    # --- NUEVOS MÉTODOS PARA PERSISTENCIA ---
 
+    def to_dict(self):
+        """Convierte el objeto en un diccionario simple."""
+        return {
+            "numero": self.numero,
+            "capacidad": self.capacidad,
+            "precio_por_noche": self.precio_por_noche,
+            "disponible": self.disponible # Usamos la propiedad pública
+        }
 
-
-
+    @classmethod
+    def from_dict(cls, data):
+        """Crea una instancia de Habitacion desde un diccionario."""
+        # data es el diccionario que cargamos del JSON
+        return cls(
+            numero = data["numero"],
+            capacidad = data["capacidad"],
+            precio_por_noche = data["precio_por_noche"],
+            disponible = data["disponible"]
+        )
 
 
 
