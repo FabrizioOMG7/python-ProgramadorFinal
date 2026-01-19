@@ -37,5 +37,19 @@ class Cliente:
             raise ValueError("El estado del cliente debe ser booleano")
         self._activo = valor
 
-
-
+    def to_dict(self):
+        """Convierte el objeto Cliente a un diccionario para poder guardarlo."""
+        return {
+            "nombre": self.nombre,
+            "email": self.email,
+            "activo": self.activo # Usamos la propiedad, no el atributo privado _activo
+        }
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Crea un Cliente desde un diccionario (para cuando carguemos datos)."""
+        return cls(
+            nombre = data["nombre"],
+            email = data["email"],
+            activo = data["activo"]
+        )

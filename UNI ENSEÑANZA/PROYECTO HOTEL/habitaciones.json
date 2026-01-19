@@ -1,12 +1,12 @@
 [
     {
-        "numero": 101,
+        "numero": "101",
         "capacidad": 2,
         "precio_por_noche": 120,
         "disponible": false
     },
     {
-        "numero": 102,
+        "numero": "102",
         "capacidad": 4,
         "precio_por_noche": 200,
         "disponible": true
