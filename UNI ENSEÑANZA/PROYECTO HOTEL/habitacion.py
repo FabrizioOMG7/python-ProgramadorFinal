@@ -1,5 +1,5 @@
 #Importamos DatosInvalidosError del archivo excepciones
-from excepciones import DatosError, DatosInvalidosError, TipoDatoError
+from excepciones import DatosInvalidosError, TipoDatoError
 
 # Definimos la clase habitación
 class Habitacion:
@@ -17,7 +17,9 @@ class Habitacion:
         if not isinstance(disponible, bool):
             raise TipoDatoError("El estado disponible debe ser booleano (True o False)")
         if not isinstance(numero, str):
-            raise TipoDatoError("El número de la habitación no debe estar vacío")
+            raise TipoDatoError("El número de la habitación debe ser un string")
+        if len(numero)<=0:
+            raise DatosInvalidosError("El número debe contener al menos un valor string")
         self.numero = numero
         self.capacidad = capacidad
         self.precio_por_noche = precio_por_noche
@@ -32,7 +34,7 @@ class Habitacion:
     @disponible.setter
     def disponible(self, valor):
         if not isinstance(valor, bool):
-            raise ValueError("El estado disponible debe ser booleano")
+            raise TipoDatoError("El estado disponible debe ser booleano")
         
         self._disponible = valor
 
@@ -54,7 +56,8 @@ class Habitacion:
             "numero": self.numero,
             "capacidad": self.capacidad,
             "precio_por_noche": self.precio_por_noche,
-            "disponible": self.disponible # Usamos la propiedad pública
+            "disponible": self.disponible, # Usamos la propiedad pública
+            "tipo": "habitacion"
         }
 
     @classmethod

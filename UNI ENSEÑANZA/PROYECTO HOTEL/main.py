@@ -27,16 +27,27 @@ def main():
         # NOTA: Ponemos los números como STRING ("101") porque tu clase ahora lo exige.
         h101 = Habitacion("101", 2, 120, True)
         h102 = Habitacion("102", 4, 200, True)
-        lista_habitaciones = [h101, h102]
+        h103 = Suite("103", 4, 250, True, True)  # Nueva suite
+        lista_habitaciones = [h101, h102, h103]
     else:
         print(f"📂 Se encontraron {len(datos_crudos)} habitaciones en el archivo.")
         # b) Convertimos los diccionarios de vuelta a OBJETOS Habitacion
-        #    Usamos el método from_dict que creaste la semana pasada.
-        for dato in datos_crudos:
-            habitacion_obj = Habitacion.from_dict(dato)
-            lista_habitaciones.append(habitacion_obj)
-        print("✅ Datos convertidos a objetos exitosamente.")
+        #    Usamos el método from_dict.
 
+        for dato in datos_crudos:
+            
+            # 1. Leemos la etiqueta de identidad
+            if dato["tipo"] == "Suite":
+                # Es una Suite: Usamos el constructor de Suite (con jacuzzi)
+                habitacion_obj = Suite.from_dict(dato)
+            else:
+                # Es normal: Usamos el constructor de Habitacion
+                habitacion_obj = Habitacion.from_dict(dato)
+            
+            lista_habitaciones.append(habitacion_obj)
+            
+        print("✅ Datos convertidos exitosamente (Suites y Habitaciones detectadas).")
+        
     # ---------------------------------------------------------
     # 2. LÓGICA DE NEGOCIO (Igual que antes)
     # ---------------------------------------------------------
@@ -101,7 +112,7 @@ def main():
     # 5. PRUEBA DE ERROR FORZADO
     print("\n--- PRUEBA DE ERROR CONTROLADO ---")
     try:
-        reserva_fallida = Reserva(cliente, suite, date(2025, 2, 1), date(2025, 2, 5))
+        reserva_fallida = Reserva(cliente,  suite, date(2025, 2, 1), date(2025, 2, 5))
     except HabitacionOcupadaError as e:
         print(f"🛑 Error detectado correctamente: {e}")
     except Exception as e:

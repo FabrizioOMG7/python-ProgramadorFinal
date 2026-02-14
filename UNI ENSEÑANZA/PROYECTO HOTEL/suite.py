@@ -34,6 +34,19 @@ class Suite(Habitacion):
         
         # 2. Le agregamos lo exclusivo de la Suite
         datos["jacuzzi"] = self.jacuzzi
+        # 3. SOBREESCRIBIMOS la etiqueta para decir la verdad
+        datos["tipo"] = "Suite"
         
         # 3. Lo devolvemos completo
         return datos
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Crea una Suite recuperando el jacuzzi del diccionario."""
+        return cls(
+            numero=data["numero"],
+            capacidad=data["capacidad"],
+            precio_por_noche=data["precio_por_noche"],
+            disponible=data["disponible"],
+            jacuzzi=data["jacuzzi"]
+        )

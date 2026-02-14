@@ -3,12 +3,22 @@
         "numero": "101",
         "capacidad": 2,
         "precio_por_noche": 120,
-        "disponible": false
+        "disponible": false,
+        "tipo": "habitacion"
     },
     {
         "numero": "102",
         "capacidad": 4,
         "precio_por_noche": 200,
-        "disponible": true
+        "disponible": true,
+        "tipo": "habitacion"
+    },
+    {
+        "numero": "103",
+        "capacidad": 4,
+        "precio_por_noche": 250,
+        "disponible": true,
+        "tipo": "Suite",
+        "jacuzzi": true
     }
 ]
